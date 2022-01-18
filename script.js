@@ -1,9 +1,18 @@
 const grid = document.querySelector("#grid");
-let gridSize = 16;
+const gridSizeSlider = document.getElementById("grid-size-slider");
+let gridSize = gridSizeSlider.value;
 let drawingMode = "classic";
+
+document.documentElement.style.setProperty("--grid-size", gridSize);
+
+gridSizeSlider.addEventListener("input", function () {
+    gridSize = this.value;
+    resetGrid();
+})
 
 function resetGrid() {
     grid.innerHTML = "";
+    document.documentElement.style.setProperty("--grid-size", gridSize);
     createGrid(gridSize, drawingMode);
 }
 
@@ -40,4 +49,4 @@ function createGrid(gridSize, drawingMode) {
     }
 }
 
-createGrid(16, "classic")
+createGrid(gridSize, drawingMode);
