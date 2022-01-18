@@ -4,14 +4,31 @@
         <meta charset="UTF-8">
         <title>Etch-a-Sketch</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="script.js" defer></script>
     </head>
     <body>
-        <h1>Etch-a-Sketch</h1>
-        <div id="grid"></div>
-        <button onclick="setDrawingMode('classic')">Classic</button>
-        <button onclick="setDrawingMode('rainbow')">Rainbow</button>
-        <button onclick="resetGrid()">Reset</button>
-        <input type="range" min="16" max="64" value="16" class="slider" id="grid-size-slider">
+        <div class="wrapper">
+            <h1>Etch-a-Sketch</h1>
+            <div id="grid"></div>
+            <div class = "buttons">
+                <div class="inner-wrapper">
+                    <h2>Clear canvas</h2>
+                    <i class="material-icons" id="reset-button">refresh</i>
+                </div>
+                <div class="inner-wrapper">
+                    <h2>Drawing mode</h2>
+                    <div class="drawing-mode-buttons">
+                        <button onclick="setDrawingMode('classic')">Classic</button>
+                        <button onclick="setDrawingMode('rainbow')">Rainbow</button>
+                    </div>
+                </div>
+                <div class="inner-wrapper">
+                    <h2>Grid size</h2>
+                    <input type="range" min="16" max="64" value="16" class="slider" id="grid-size-slider">
+                    <label for="grid-size-slider" id="grid-size-label">16x16</label>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

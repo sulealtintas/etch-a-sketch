@@ -2,11 +2,13 @@ const grid = document.querySelector("#grid");
 const gridSizeSlider = document.getElementById("grid-size-slider");
 let gridSize = gridSizeSlider.value;
 let drawingMode = "classic";
+let gridSizeLabel = document.querySelector("#grid-size-label");
 
 document.documentElement.style.setProperty("--grid-size", gridSize);
 
 gridSizeSlider.addEventListener("input", function () {
     gridSize = this.value;
+    gridSizeLabel.textContent = `${gridSize} x ${gridSize}`;
     resetGrid();
 })
 
@@ -15,6 +17,9 @@ function resetGrid() {
     document.documentElement.style.setProperty("--grid-size", gridSize);
     createGrid(gridSize, drawingMode);
 }
+
+resetButton = document.querySelector("#reset-button");
+resetButton.addEventListener("click", resetGrid)
 
 function setDrawingMode(mode) {
     if (drawingMode !== mode) {
