@@ -20,11 +20,11 @@ function drawClassic() {
 
 function drawRainbow() {
     console.log(this.style.backgroundColor);
-    hue = Math.floor(Math.random() * 361).toString();
+    let hue = Math.floor(Math.random() * 361).toString();
     this.style.backgroundColor = `hsl(${hue},100%,70%)`;
 }
 
-function createGrid() {
+function createGrid(gridSize, drawingMode) {
     for (let i = 0; i < gridSize ** 2; i++) {
         const div = document.createElement("div");
         div.classList.add("square");
@@ -39,4 +39,4 @@ function createGrid() {
     }
 }
 
-createGrid()
+createGrid(16, "classic")
