@@ -33,10 +33,15 @@ function drawClassic() {
 }
 
 function drawRainbow() {
+    //set random hue on first mouseover
     if (!this.style.backgroundColor) {
-        let hue = Math.floor(Math.random() * 361).toString();
-        this.style.backgroundColor = `hsl(${hue},100%,70%)`;
+        this.dataset.hue = Math.floor(Math.random() * 361).toString();
+        this.dataset.brightness = "80";
+    } else {
+        //decrease brightness on subsequent mouseover
+        this.dataset.brightness = (this.dataset.brightness - 5).toString();
     }
+    this.style.backgroundColor = `hsl(${this.dataset.hue},100%,${this.dataset.brightness}%)`;
 }
 
 function createGrid(gridSize, drawingMode) {
