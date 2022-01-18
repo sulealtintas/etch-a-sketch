@@ -19,9 +19,10 @@ function drawClassic() {
 }
 
 function drawRainbow() {
-    console.log(this.style.backgroundColor);
-    let hue = Math.floor(Math.random() * 361).toString();
-    this.style.backgroundColor = `hsl(${hue},100%,70%)`;
+    if (!this.style.backgroundColor) {
+        let hue = Math.floor(Math.random() * 361).toString();
+        this.style.backgroundColor = `hsl(${hue},100%,70%)`;
+    }
 }
 
 function createGrid(gridSize, drawingMode) {
