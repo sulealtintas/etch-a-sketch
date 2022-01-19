@@ -1,10 +1,9 @@
 const grid = document.querySelector("#grid");
 const gridSizeSlider = document.getElementById("grid-size-slider");
+const gridSizeLabel = document.querySelector("#grid-size-label");
+
 let gridSize = gridSizeSlider.value;
 let drawingMode = "classic";
-let gridSizeLabel = document.querySelector("#grid-size-label");
-
-document.documentElement.style.setProperty("--grid-size", gridSize);
 
 gridSizeSlider.addEventListener("input", function () {
     gridSize = this.value;
@@ -38,7 +37,7 @@ function drawRainbow() {
         this.dataset.hue = Math.floor(Math.random() * 361).toString();
         this.dataset.brightness = "80";
     } else {
-        //decrease brightness on subsequent mouseover
+        //decrease brightness on subsequent mouseovers
         this.dataset.brightness = (this.dataset.brightness - 5).toString();
     }
     this.style.backgroundColor = `hsl(${this.dataset.hue},100%,${this.dataset.brightness}%)`;
