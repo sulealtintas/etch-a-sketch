@@ -32,12 +32,10 @@ function drawClassic() {
 }
 
 function drawRainbow() {
-    //set random hue on first mouseover
     if (!this.style.backgroundColor) {
         this.dataset.hue = Math.floor(Math.random() * 361).toString();
         this.dataset.brightness = "80";
     } else {
-        //decrease brightness on subsequent mouseovers
         this.dataset.brightness = (this.dataset.brightness - 5).toString();
     }
     this.style.backgroundColor = `hsl(${this.dataset.hue},100%,${this.dataset.brightness}%)`;
