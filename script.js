@@ -18,7 +18,17 @@ function resetGrid() {
 }
 
 resetButton = document.querySelector("#reset-button");
-resetButton.addEventListener("click", resetGrid)
+resetButton.addEventListener("click", resetGrid);
+
+classicButton = document.querySelector("#classic-button");
+classicButton.addEventListener("click", function () {
+    setDrawingMode("classic");
+});
+
+rainbowButton = document.querySelector("#rainbow-button");
+rainbowButton.addEventListener("click", function () {
+    setDrawingMode("rainbow")
+});
 
 function setDrawingMode(mode) {
     if (drawingMode !== mode) {
